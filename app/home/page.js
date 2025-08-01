@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+'use client'
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const sampleFootballTopics = [
@@ -13,7 +14,7 @@ const sampleFootballTopics = [
   "Top Football Transfers"
 ];
 
-const bgImages = {
+const bgImages={
   "UEFA Champions League": "champions.jpg",
   "Premier League": "premier.jpg",
   "FIFA World Cup": "worldcup.jpg",
@@ -44,7 +45,7 @@ export default function Home() {
     >
       <div className="bg-black bg-opacity-60 p-10 rounded-2xl text-center max-w-xl shadow-2xl">
         <h1 className="text-4xl font-bold mb-4">Discover Football</h1>
-        
+
         <AnimatePresence mode="wait">
           <motion.p
             key={currentTopic}
@@ -57,9 +58,9 @@ export default function Home() {
             {currentTopic}
           </motion.p>
         </AnimatePresence>
-        
+
         <Link
-          to={`/topic/${encodeURIComponent(currentTopic)}`}
+          href={`/topic/${encodeURIComponent(currentTopic)}`}
           className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-full text-lg transition-all"
         >
           Learn More
